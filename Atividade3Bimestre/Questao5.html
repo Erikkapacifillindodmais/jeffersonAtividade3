@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+
+    <div id="clicado">Clique aqui</div>
+
+    <ul id="lista">
+
+    </ul>
+
+    <script>
+
+        const botao = document.getElementById("clicado")
+
+        const lista = document.querySelector("#lista")
+
+        let clickCount = 0;
+
+        botao.addEventListener('click', () => {
+
+            const novoItem = document.createElement("li")
+
+            clickCount++;
+            novoItem.textContent = "lista n°"+ clickCount;
+
+            lista.appendChild(novoItem)
+
+        })
+
+
+
+    </script>
+    
+</body>
+</html>

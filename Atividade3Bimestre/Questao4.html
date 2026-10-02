@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+
+    <div id="clicado">Clique aqui</div>
+
+    <p id="contador">0</p>
+
+    <script>
+
+        const botao = document.getElementById("clicado")
+
+        const contador = document.querySelector("#contador")
+
+        let clickCount = 0;
+
+        botao.addEventListener('click', () => {
+
+            clickCount++;
+            contador.textContent = clickCount;
+
+        })
+
+
+
+    </script>
+
+
+</body>
+
+</html>

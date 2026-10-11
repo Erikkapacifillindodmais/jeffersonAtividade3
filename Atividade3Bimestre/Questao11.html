@@ -1,0 +1,228 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<style>
+
+.invalido{
+
+    border-color: red;
+
+}
+
+.valido{
+
+    border-color: green;
+
+}
+
+
+</style>
+
+
+<body>
+
+    <form id="formulario" action="">
+
+        <div class="form-group">
+
+            <label for="nome">|Nome</label>
+
+                <br>
+
+            <input type="text" name="nome" id="nome" placeholder="Digite seu nome completo...">
+
+        </div>
+
+        <div class="form-group">
+
+            <label for="email">|Email</label>
+
+                <br>
+
+            <input type="text" name="email" id="email" placeholder="infome o seu email...">
+
+        </div>
+
+        <div class="form-group">
+
+            <label for="senha">|Senha</label>
+
+                <br>
+
+            <input type="password" name="senha" id="senha" placeholder="Crie um senha...">
+
+        </div>
+
+        <div class="form-group">
+
+            <label for="confirmarSenha">|Confirmar sua senha</label>
+
+                <br>
+
+            <input type="password" name="confirmarSenha" id="confirmarSenha" placeholder="Confirme sua senha">
+
+        </div>
+
+        <div class="form-group">
+
+            <button id="enviar" type="submit">Enviar </button>
+
+        </div>
+
+    </form>
+
+    <button id="revelar">revelar senha</button>
+
+    <script>
+
+        const formulario = document.querySelector('#formulario')
+
+        const revelar = document.querySelector('#revelar')
+
+        formulario.addEventListener('submit',(event)=>{
+
+            event.preventDefault()
+
+            const nome = document.querySelector('#nome')
+
+            const email = document.querySelector('#email')
+
+            const emailRegex = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/
+
+            const senha = document.querySelector('#senha')
+
+            const senhaRegex = /^(?=.*[A-Z])(?=.*[!@#$%^&*])[A-Za-z\d!@#$%^&*]{8,}$/
+
+            const confirmarSenha = document.querySelector('#confirmarSenha')
+
+            const enviar = document.querySelector('#enviar')
+
+            if(nome.value.length < 3 || nome.value == ''){
+
+                nome.value = ""
+
+                nome.placeholder = "Nome muito curto"
+
+                nome.classList.remove('valido')
+
+                nome.classList.add('invalido')
+
+            }else{
+
+                nome.classList.remove('invalido')
+
+                nome.classList.add('valido')
+
+            }
+
+            if(!emailRegex.test(email.value) || email.value == ''){
+
+                email.value = ""
+
+                email.placeholder = "email invalido"
+
+                email.classList.remove('valido')
+
+                email.classList.add('invalido')
+
+            }else{
+
+                email.classList.remove('invalido')
+
+                email.classList.add('valido')
+
+            }
+
+            if(!senhaRegex.test(senha.value || senha.value == '')){
+
+                senha.value = ""
+
+                senha.placeholder = "senha invalida"
+
+                senha.classList.remove('valido')
+
+                senha.classList.add('invalido')
+
+            }else{
+
+                senha.classList.remove('invalido')
+
+                senha.classList.add('valido')
+
+            }
+
+            if(confirmarSenha.value != senha.value || confirmarSenha.value == ''){
+
+                confirmarSenha.value = ''
+
+                confirmarSenha.placeholder = "as senhas nao batem"
+
+                confirmarSenha.classList.remove('valido')
+
+                confirmarSenha.classList.add('invalido')
+
+            }else{
+
+                confirmarSenha.classList.remove('invalido')
+
+                confirmarSenha.classList.add('valido')
+
+            }
+
+            if(nome.classList.contains('valido') && email.classList.contains('valido') && senha.classList.contains('valido') && confirmarSenha.classList.contains('valido')){
+
+                nome.value = ''
+
+                nome.classList.remove('valido')
+
+                email.value = ''
+
+                email.classList.remove('valido')
+
+                senha.value = ''
+
+                senha.classList.remove('valido')
+
+                confirmarSenha.value = ''
+
+                confirmarSenha.classList.remove('valido')
+
+                enviar.textContent = 'Formulario enviado com sucesso'
+
+                setTimeout(() => {
+
+                enviar.textContent = 'Enviar'
+
+            }, 1000)
+
+            }
+
+        })
+
+        revelar.addEventListener('click',()=>{
+
+            if(senha.type === 'password'){
+                
+                senha.type = 'text'
+                confirmarSenha.type = 'text'
+
+            }else{
+
+                senha.type = 'password'
+                confirmarSenha.type = 'password'
+
+            }
+            
+
+        })
+
+
+    </script>
+
+</body>
+</html>

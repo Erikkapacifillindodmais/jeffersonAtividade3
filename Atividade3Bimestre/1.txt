@@ -1,0 +1,3 @@
+O javascript por ser uma liguagem interpretada, que nao precisa de um tempo para previo para realizar comandos permite interacoes mais dinamicas e instantaneas,
+o uso do JS no frontend foca muito na experiencia do usuario e o site permitindo manipular elementos do site em tempo real, um exemplo é o carrosel que exercio 10 que usa JS para
+poder alter a scr de um img. 

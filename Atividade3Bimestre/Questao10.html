@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+
+    <img id="carrosel" src="" alt="">
+
+    <button id="avancar">Avançar</button>
+
+    <button id="voltar">voltar</button>
+
+    <script>
+
+    const carrosel = document.querySelector('#carrosel')
+
+    const avancar = document.querySelector('#avancar')
+
+    const voltar = document.querySelector('#voltar')
+
+    let imagens = [
+
+        "https://picsum.photos/id/237/600/400",
+        "https://picsum.photos/id/238/600/400",
+        "https://picsum.photos/id/239/600/400",
+        "https://picsum.photos/id/240/600/400"
+
+    ]
+
+    let indice = 0
+
+    carrosel.src = imagens[indice];
+
+    function trocarImagem(valor){
+
+        indice = (indice + valor + imagens.length) % imagens.length
+
+        
+        carrosel.src = imagens[indice]
+
+    }
+
+    setInterval(() => trocarImagem(1), 5000);
+
+    avancar.addEventListener('click',() => trocarImagem(1))
+
+    voltar.addEventListener('click',() => trocarImagem(-1))
+
+
+    </script>
+    
+</body>
+</html>

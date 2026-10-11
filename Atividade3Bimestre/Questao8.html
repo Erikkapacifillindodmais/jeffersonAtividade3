@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+
+    <input type="text" placeholder="digite aqui">
+
+    <button id="verificar">Verificar</button>
+
+    <p id="resposta"></p>
+
+    <button id="modoEscuro">Mudar modo</button>
+
+    <script>
+
+        const input = document.querySelector('input')
+
+        const verificar = document.querySelector('#verificar')
+
+        const resposta = document.querySelector('#resposta')
+
+        const modoEscuro = document.querySelector('#modoEscuro')
+
+        verificar.addEventListener('click', function(){
+
+            if(input.value.length > 2){
+
+                if(input.value === "flocos"){
+
+                    resposta.textContent = "Ahh, mas chocolate é o meu favorito..."
+
+                }
+
+                else if(input.value === "chocolate"){
+
+                    resposta.textContent = "Eu amo sorvete de chocolate!"
+
+                }
+
+                else{
+
+                    resposta.textContent = "Ahh, eu esperava um sabor de sorvete..."
+
+                }
+
+            }
+
+        })
+
+        let modo = false
+
+        modoEscuro.addEventListener('click',function(){
+
+            if(modo){
+
+                document.body.style.backgroundColor = ""
+
+                document.body.style.color = ""
+
+                modo = false
+
+                return
+
+            }
+
+            document.body.style.backgroundColor = "black"
+
+            document.body.style.color = "white"
+
+            modo = true
+
+        })
+        
+        
+    </script>
+    
+</body>
+</html>

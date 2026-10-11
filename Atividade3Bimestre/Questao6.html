@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<style>
+
+.nomeAventura{
+
+    display: flex;
+
+    gap: 10px;
+
+}
+
+</style>
+
+<body>
+
+    <div class="nomeAventura">
+
+        <h1 id="acao"></h1>
+
+        <h1 id="local"></h1>
+
+        <h1 id="complemento"></h1>
+
+    </div>
+
+    <button id="randomizar">randomizar</button>
+
+    <script>
+
+        const btnRandomizar = document.querySelector('#randomizar')
+
+        const acao = document.querySelector('#acao')
+
+        const local = document.querySelector('#local')
+
+        const complemento = document.querySelector('#complemento')
+
+        let acaoTexto = [
+
+            "A Busca ",
+            "A Batalha ",
+            "O Resgate "
+
+        ]
+
+        let localTexto = [
+
+            " na Floresta Sombria ",
+            " no Reino Perdido ",
+            " na Montanha Misteriosa "
+
+        ]
+
+        let complementoTexto = [
+
+            " do Dragão",
+            " do Tesouro Esquecido",
+            " da Espada Ancestral"
+
+        ]
+
+        btnRandomizar.addEventListener('click',function(){
+
+            let indice = Math.floor(Math.random() * acaoTexto.length)
+
+            acao.textContent = acaoTexto[indice]
+
+            indice = Math.floor(Math.random() * acaoTexto.length)
+
+            local.textContent = localTexto[indice]
+
+            indice = Math.floor(Math.random() * acaoTexto.length)
+
+            complemento.textContent = complementoTexto[indice]
+
+        })
+
+
+    </script>
+    
+</body>
+</html>

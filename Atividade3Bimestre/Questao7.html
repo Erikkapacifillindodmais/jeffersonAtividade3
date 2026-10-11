@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    
+    <style>
+
+        #dipper{
+
+            max-width: 10%;
+            max-height: 10%;
+
+        }
+
+    </style>
+</head>
+<body>
+
+    <img id="dipper" src="djqfwei-0d9e07e4-42ca-4e58-b796-39ed9538b990.png" alt="">
+
+    <p id="fala"></p>
+
+    <button id="surpresa">Surpresa</button>
+
+    <script>
+
+        const dipper = document.querySelector('#dipper')
+
+        const fala = document.querySelector('#fala')
+
+        const surpresa = document.querySelector('#surpresa')
+
+        let mouseEntrou = false
+
+        dipper.addEventListener('mouseenter',function(){
+
+            fala.textContent = 'Ta tirando jão'
+
+            mouseEntrou = true
+
+        })
+
+        dipper.addEventListener('mouseleave',function(){
+
+            fala.textContent = 'ficou com medo...'
+
+            mouseEntrou = false
+
+            setTimeout(() => {
+
+                fala.textContent = ""
+
+            }, 1000)
+
+        })
+
+        dipper.addEventListener('mousemove',function(){
+
+            setTimeout(() =>{
+
+                if(mouseEntrou){
+
+                fala.textContent = 'Isso faz cossegas'
+
+            }
+
+            }, 1000)
+
+        })
+
+        dipper.addEventListener('click',function(){
+
+            fala.textContent = "ai isso doeu"
+
+        })
+
+
+        surpresa.addEventListener('click',function(){
+
+            dipper.src = "7468b8288b545e08a841dfa0f74e397a.jpg"
+      
+            fala.textContent = "Gosta do que ve"
+
+            setTimeout(() => {
+
+                dipper.src = "djqfwei-0d9e07e4-42ca-4e58-b796-39ed9538b990.png"
+
+                fala.textContent = ""
+
+            }, 1000)
+
+        })
+
+
+    </script>
+    
+</body>
+</html>
